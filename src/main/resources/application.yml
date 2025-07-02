@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: Clon Twitter
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update   # 또는 create, create-drop 등 개발 상황에 따라 조정
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
