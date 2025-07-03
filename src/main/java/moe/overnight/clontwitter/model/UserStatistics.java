@@ -28,14 +28,19 @@ public class UserStatistics {
         this.user = user;
     }
 
-    @Column(nullable = false, columnDefinition = "integer default 0")
-    private int followers;
+    @Column(nullable = false)
+    private int followers = 0;
 
-    @Column(nullable = false, columnDefinition = "integer default 0")
-    private int followings;
+    @Column(nullable = false)
+    private int followings = 0;
 
-    @Column(nullable = false, columnDefinition = "integer default 0")
-    private int tweets;
+    @Column(nullable = false)
+    private int tweets = 0;
+
+    @Builder
+    public UserStatistics(User user) {
+        this.user = user;
+    }
 
     public void increaseFollowers() { this.followers++; }
     public void decreaseFollowers() { this.followers--; }
