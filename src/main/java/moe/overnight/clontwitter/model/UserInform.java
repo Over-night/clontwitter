@@ -16,12 +16,11 @@ public class UserInform {
     @Column(columnDefinition = "uuid")
     private UUID id;
 
+    @Setter
     @OneToOne
     @MapsId
     @JoinColumn(name="id")
     private User user;
-
-    public void setUser(User user) { this.user = user; }
 
     @Column(nullable = false, length = 50)
     private String nickname;
@@ -36,7 +35,8 @@ public class UserInform {
     private String profileUrl;
 
     @Builder
-    public UserInform(String nickname, String introduce, String headerUrl, String profileUrl) {
+    public UserInform(User user, String nickname, String introduce, String headerUrl, String profileUrl) {
+        this.user = user;
         this.nickname = nickname;
         this.introduce = introduce;
         this.headerUrl = headerUrl;
